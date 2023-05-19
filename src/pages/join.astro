@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Heading from "../components/Heading.vue";
+import PrimaryButton from "../components/PrimaryButton.vue";
+---
+
+<BaseLayout title="Bli medlem">
+  <div class="flex flex-col gap-5 mt-[33vh]">
+    <PrimaryButton href="https://nyan.cat/">Jeg er overbevist 🎉</PrimaryButton>
+    <section>
+      <Heading size={"sm"}>Hvorfor skal jeg melde meg inn?</Heading>
+      <p>Som medlem kan du:</p>
+      <ul class="list-disc list-inside">
+        <li>Delta på våre arrangementer</li>
+        <li>Stemme på årsmøtet</li>
+        <li>Støtte vår sak</li>
+      </ul>
+    </section>
+    <section>
+      <Heading size={"sm"}>Hvor mye koster det?</Heading>
+      <p>Det koster 50 kroner i året å være medlem av GOKK.</p>
+    </section>
+  </div>
+</BaseLayout>

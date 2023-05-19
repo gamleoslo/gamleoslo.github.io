@@ -1,3 +1,30 @@
-<h1>
-    Heisann på degsann
-</h1>
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PrimaryButton from "../components/PrimaryButton.vue";
+import SecondaryButton from "../components/SecondaryButton.vue";
+import Heading from "../components/Heading.vue";
+---
+
+<BaseLayout title="GOKK">
+  <div class="flex flex-col gap-5 mt-[33vh]">
+    <Heading>Gamle Oslo Kaffe og Koding</Heading>
+    <div class="my-[10vh] space-y-3">
+      <PrimaryButton href="/join">Bli medlem ✨</PrimaryButton>
+      <SecondaryButton href="/articles">Artikler 📖</SecondaryButton>
+    </div>
+    <section class="space-y-5">
+      <Heading size={"sm"}>Hva er GOKK?</Heading>
+      <p>
+        Gamle Oslo Kaffe og Koding er en organisasjon for alle som er
+        interesserte i Gamle Oslo, Kaffe, og/eller Koding. <b
+          >Ja, det holder med én.</b
+        >
+      </p>
+      <p>
+        Vi arrangerer sosiale sammenkomster, koding, og kaffedrikking. Vi
+        arrangerer også kurs og workshops for de som ønsker å lære mer om
+        koding.
+      </p>
+    </section>
+  </div>
+</BaseLayout>

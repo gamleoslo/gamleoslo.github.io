@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Heading from "../components/Heading.vue";
+
+import { getCollection, getEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("events");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const allEvents = await getCollection("events");
+---
+
+<BaseLayout title="Artikler">
+  <div class="flex flex-col gap-5">
+    <Heading size={"sm"}>Arrangementer</Heading>
+    {
+      allEvents
+        .filter((event) => event.data.date > new Date())
+        .sort((a, b) => a.data.date - b.data.date)
+        .map((event) => (
+          <a
+            href={"/events/" + event.slug}
+            class="w-full flex flex-col gap-2 border rounded-md p-3"
+          >
+            <Heading size={"sm"}>{event.data.title}</Heading>
+            <span>🕔 {event.data.date.toLocaleDateString()}</span>
+            <span>{event.data.description}</span>
+          </a>
+        ))
+    }
+  </div>
+</BaseLayout>
